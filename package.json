@@ -40,7 +40,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "unop-react-dropdown",
+  "name": "unop-dropdown",
   "author": "AkinAguda",
   "module": "dist/unop-react-dropdown.esm.js",
   "size-limit": [

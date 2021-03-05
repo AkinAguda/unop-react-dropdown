@@ -1,12 +1,19 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Thing } from '../.';
+import UnopDropdown from '../src';
 
 const App = () => {
   return (
     <div>
-      <Thing />
+      <UnopDropdown trigger={<div>Hello</div>}>
+        <ul>
+          <li>hi</li>
+          <li>hi</li>
+          <li>hi</li>
+          <li>hi</li>
+        </ul>
+      </UnopDropdown>
     </div>
   );
 };

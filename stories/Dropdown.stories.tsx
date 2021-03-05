@@ -41,4 +41,5 @@ Default.args = {
   // onAppearStart: handler,
   // onDisappearStart: handler,
   trigger: <TestDropdown1Trigger />,
+  hover: true,
 };
