@@ -15,7 +15,7 @@ export enum DropDownDirections {
   LEFT,
 }
 
-export interface DropDownContainerProps extends CommonProps {
+export interface UnopDropdownProps extends CommonProps {
   direction?: DropDownDirections;
   onAppearStart?: () => void;
   onDisappearStart?: () => void;

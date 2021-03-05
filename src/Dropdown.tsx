@@ -25,9 +25,9 @@ const DropDown: React.FC<DropDownProps> = ({
   >
     {React.cloneElement(trigger, { onClick: handleClick })}
 
-    <ul className="drop-down-menu_EMFQP" style={style}>
+    <div className="drop-down-menu_EMFQP" style={style}>
       {children}
-    </ul>
+    </div>
   </div>
 );
 

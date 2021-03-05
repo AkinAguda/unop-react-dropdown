@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import DropDown from './Dropdown';
-import { DropDownContainerProps, DropDownDirections } from './types';
+import { UnopDropdownProps, DropDownDirections } from './types';
 
-const UnopDropdown: React.FC<DropDownContainerProps> = ({
+const UnopDropdown: React.FC<UnopDropdownProps> = ({
   trigger,
   children,
   direction = DropDownDirections.RIGHT,
@@ -81,5 +81,7 @@ const UnopDropdown: React.FC<DropDownContainerProps> = ({
     </DropDown>
   );
 };
+
+export { UnopDropdownProps };
 
 export default UnopDropdown;

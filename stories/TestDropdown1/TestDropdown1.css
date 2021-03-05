@@ -1,0 +1,11 @@
+.arrow {
+  height: 30px;
+  width: 34px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 3px;
+}
