@@ -1,0 +1,29 @@
+.DropDown_EMFQP_EMFQP {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.DropDown_EMFQP:hover {
+  cursor: pointer;
+}
+
+.DropDown_EMFQP.reveal-drop-down-menu_EMFQP .drop-down-menu_EMFQP {
+  display: block !important;
+}
+
+.DropDown_EMFQP .drop-down-menu_EMFQP {
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+  display: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+/*# sourceMappingURL=Dropdown_EMFQP.module.css.map */

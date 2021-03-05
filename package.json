@@ -1,0 +1,81 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AkinAguda/unop-react-dropdown.git"
+  },
+  "homepage": "https://github.com/AkinAguda/unop-react-dropdown",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "unop-react-dropdown",
+  "author": "AkinAguda",
+  "module": "dist/unop-react-dropdown.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/unop-react-dropdown.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/unop-react-dropdown.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@size-limit/preset-small-lib": "^4.10.0",
+    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-links": "^6.1.21",
+    "@storybook/addons": "^6.1.21",
+    "@storybook/react": "^6.1.21",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "autoprefixer": "^10.2.4",
+    "babel-loader": "^8.2.2",
+    "cssnano": "^4.1.10",
+    "husky": "^5.1.3",
+    "postcss-loader": "^5.0.0",
+    "postcss-modules": "^4.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-is": "^17.0.1",
+    "rollup-plugin-postcss": "^4.0.0",
+    "size-limit": "^4.10.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.3"
+  }
+}
