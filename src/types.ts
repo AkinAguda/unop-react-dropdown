@@ -8,11 +8,13 @@ export interface DropDownProps extends CommonProps {
   handleMouseLeave: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   show: boolean;
   style: React.CSSProperties;
+  dropdownMenuRef: React.RefObject<HTMLDivElement>;
 }
 
 export enum DropDownDirections {
-  RIGHT,
-  LEFT,
+  RIGHT = 'RIGHT',
+  LEFT = 'LEFT',
+  CENTER = 'CENTER',
 }
 
 export interface UnopDropdownProps extends CommonProps {

@@ -9,6 +9,7 @@ const DropDown: React.FC<DropDownProps> = ({
   handleClick,
   handleMouseLeave,
   handleMouseOver,
+  dropdownMenuRef,
   show,
   style,
 }) => (
@@ -25,7 +26,7 @@ const DropDown: React.FC<DropDownProps> = ({
   >
     {React.cloneElement(trigger, { onClick: handleClick })}
 
-    <div className="drop-down-menu_EMFQP" style={style}>
+    <div className="drop-down-menu_EMFQP" style={style} ref={dropdownMenuRef}>
       {children}
     </div>
   </div>
