@@ -1,6 +1,10 @@
 # unop-react-dropdown
 
-Unopinionated dropdown for react
+Unopinionated dropdown component for react.
+
+### Motivation
+
+I found myself reusing this dropdown logic between different projects.
 
 ### Features
 
@@ -9,17 +13,15 @@ Unopinionated dropdown for react
 - Since it's unopinionated, you can turn any element to a dropdown trigger and any element to a drop down menu.
 - Includes basic functionality for opening, closing and setting delay before close (for things like a close animation to happen)
 
-### Installation
-
-> `npm install unop-react-dropdown`
-
 ### Web site
+A visual playbook to demonstrate the various component prop behaviour.
 
 [Web site, docs and demo](https://unopdropdown.netlify.app/)
 
-### Motivation
+### Installation
+Unop-react-drop down is available as an [npm package]
 
-I found myself reusing this dropdown logic between projects and just needed a central place to access it
+> `npm install unop-react-dropdown`
 
 ### Usage
 
