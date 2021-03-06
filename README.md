@@ -14,7 +14,7 @@ I found myself reusing this dropdown logic between different projects.
 - Includes basic functionality for opening, closing and setting delay before close (for things like a close animation to happen)
 
 ### Live Demo
-A visual playbook to demonstrate the various component prop behaviour can be found below.
+A visual storybook to demonstrate the various component prop behaviour can be found below.
 
 [Web site, docs and demo](https://unopdropdown.netlify.app/)
 
