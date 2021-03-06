@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story, ArgTypes } from '@storybook/react';
 import UnopDropdown, { UnopDropdownProps } from '../src';
 import './styles.css';
 
@@ -27,13 +27,14 @@ const dropdownStyles: React.CSSProperties = {
   backgroundColor: 'white',
   boxShadow: '10px 5px 20px #f1efef, -10px -5px 20px #f1efef',
   borderRadius: '8px',
+  width: '300px',
 };
 
 const Template: Story<UnopDropdownProps> = (args) => {
   return (
     <UnopDropdown {...args}>
       <ul style={dropdownStyles}>
-        <li>Hello</li>
+        <li>The styling does not come with the library</li>
       </ul>
     </UnopDropdown>
   );
@@ -44,13 +45,15 @@ const AdditionalLogicTemplate: Story<UnopDropdownProps> = (args) => {
   const handler = () => {
     setOpen(!open);
   };
+  args.onAppear = handler;
+  args.onDisappearStart = handler;
   return (
-    <UnopDropdown onAppearStart={handler} onDisappearStart={handler} {...args}>
+    <UnopDropdown {...args}>
       <ul
         style={dropdownStyles}
         className={`openAnimation${!open ? ' closeAnimation' : ''}`}
       >
-        <li>Hello</li>
+        <li>The styling does not come with the library</li>
       </ul>
     </UnopDropdown>
   );
@@ -59,8 +62,6 @@ const AdditionalLogicTemplate: Story<UnopDropdownProps> = (args) => {
 export const Default = Template.bind({});
 
 Default.args = {
-  hover: false,
-  align: 'LEFT',
   trigger: <button>click</button>,
 };
 
@@ -77,7 +78,6 @@ export const LeftAlignedDropdown = Template.bind({});
 LeftAlignedDropdown.args = {
   ...Default.args,
   align: 'LEFT',
-  trigger: <button>Click</button>,
 };
 
 export const CenterAlignedDropdown = Template.bind({});
@@ -85,7 +85,6 @@ export const CenterAlignedDropdown = Template.bind({});
 CenterAlignedDropdown.args = {
   ...Default.args,
   align: 'CENTER',
-  trigger: <button>Click</button>,
 };
 
 export const DelayedDisappear = Template.bind({});
@@ -93,7 +92,6 @@ export const DelayedDisappear = Template.bind({});
 DelayedDisappear.args = {
   ...Default.args,
   delay: 300,
-  trigger: <button>Click</button>,
 };
 
 export const UsingAppearanceEvents = AdditionalLogicTemplate.bind({});
@@ -101,4 +99,6 @@ export const UsingAppearanceEvents = AdditionalLogicTemplate.bind({});
 UsingAppearanceEvents.args = {
   ...Default.args,
   delay: 300,
+  onDisappearStart: () => {},
+  onAppear: () => {},
 };
