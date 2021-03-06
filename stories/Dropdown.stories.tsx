@@ -30,13 +30,21 @@ const dropdownStyles: React.CSSProperties = {
   width: '300px',
 };
 
+const dropdownWrapperStyles: React.CSSProperties = {
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+};
+
 const Template: Story<UnopDropdownProps> = (args) => {
   return (
-    <UnopDropdown {...args}>
-      <ul style={dropdownStyles}>
-        <li>The styling does not come with the library</li>
-      </ul>
-    </UnopDropdown>
+    <div style={dropdownWrapperStyles}>
+      <UnopDropdown {...args}>
+        <ul style={dropdownStyles}>
+          <li>The styling does not come with the library</li>
+        </ul>
+      </UnopDropdown>
+    </div>
   );
 };
 
@@ -48,14 +56,16 @@ const AdditionalLogicTemplate: Story<UnopDropdownProps> = (args) => {
   args.onAppear = handler;
   args.onDisappearStart = handler;
   return (
-    <UnopDropdown {...args}>
-      <ul
-        style={dropdownStyles}
-        className={`openAnimation${!open ? ' closeAnimation' : ''}`}
-      >
-        <li>The styling does not come with the library</li>
-      </ul>
-    </UnopDropdown>
+    <div style={dropdownWrapperStyles}>
+      <UnopDropdown {...args}>
+        <ul
+          style={dropdownStyles}
+          className={`openAnimation${!open ? ' closeAnimation' : ''}`}
+        >
+          <li>The styling does not come with the library</li>
+        </ul>
+      </UnopDropdown>
+    </div>
   );
 };
 
