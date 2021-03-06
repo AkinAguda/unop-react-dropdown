@@ -47,15 +47,15 @@ and use as:
 
 ### Component props
 
-| Prop             | Type        | Default | Description                                                                                                   |
-| ---------------- | ----------- | ------- | ------------------------------------------------------------------------------------------------------------- |
-| trigger          | Jsx.Element | []      | This will be passed an onClick to handle the toggling when it is rendered. This should prefarably be a button |
-| align            | 'RIGHT'     | 'LEFT'  | 'CENTER'                                                                                                      | 'LEFT' | When 'RIGHT', the dropdown will be rendered below the trigger, aligned to the right. When 'CENTER', the dropdown will be aligned to the center |
-| onAppear         | function    | null    | This will be called when the dropdown is visible                                                              |
-| onDisappear      | function    | null    | This will be called when the dropdown is invisible                                                            |
-| onDisappearStart | function    | null    | This will be called when the timeout to diappear(become invisible) starts                                     |
-| delay            | number      | 0       | This is the delay in milliseconds before the dropdown goes invisible                                          |
-| hover            | boolean     | false   | When true, the dropdown will become visible on hover                                                          |
+| Prop             | Type                          | Default | Description                                                                                                                                    |
+| ---------------- | ----------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| trigger          | Jsx.Element                   | []      | This will be passed an onClick to handle the toggling when it is rendered. This should prefarably be a button                                  |
+| align            | 'RIGHT' or 'LEFT' or 'CENTER' | 'LEFT'  | When 'RIGHT', the dropdown will be rendered below the trigger, aligned to the right. When 'CENTER', the dropdown will be aligned to the center |
+| onAppear         | function                      | null    | This will be called when the dropdown is visible                                                                                               |
+| onDisappear      | function                      | null    | This will be called when the dropdown is invisible                                                                                             |
+| onDisappearStart | function                      | null    | This will be called when the timeout to diappear(become invisible) starts                                                                      |
+| delay            | number                        | 0       | This is the delay in milliseconds before the dropdown goes invisible                                                                           |
+| hover            | boolean                       | false   | When true, the dropdown will become visible on hover                                                                                           |
 
 ### License
 
