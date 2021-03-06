@@ -18,6 +18,10 @@ A visual storybook to demonstrate the various component prop behaviour can be fo
 
 [Web site, docs and demo](https://unopdropdown.netlify.app/)
 
+![](hover.gif)
+
+![](align.gif)
+
 ### Installation
 Unop-react-drop down is available as an [npm package]
 
