@@ -13,6 +13,10 @@ Unopinionated dropdown for react
 
 > `npm install unop-react-dropdown`
 
+### Web site
+
+[Web site, docs and demo](https://unopdropdown.netlify.app/)
+
 ### Motivation
 
 I found myself reusing this dropdown logic between projects and just needed a central place to access it
