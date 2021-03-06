@@ -18,11 +18,10 @@ export enum DropDownDirections {
 }
 
 export interface UnopDropdownProps extends CommonProps {
-  direction?: DropDownDirections;
-  onAppearStart?: () => void;
-  onDisappearStart?: () => void;
-  onAppear?: () => void;
-  onDisappear?: () => void;
+  align?: DropDownDirections;
+  onDisappearStart?: (e?: any) => void;
+  onAppear?: (e?: any) => void;
+  onDisappear?: (e?: any) => void;
   delay?: number;
   hover?: boolean;
 }

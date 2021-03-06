@@ -56,13 +56,11 @@ const AdditionalLogicTemplate: Story<UnopDropdownProps> = (args) => {
   );
 };
 
-// By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
-// https://storybook.js.org/docs/react/workflows/unit-testing
 export const Default = Template.bind({});
 
 Default.args = {
   hover: false,
-  direction: 'LEFT',
+  align: 'LEFT',
   trigger: <button>click</button>,
 };
 
@@ -78,7 +76,7 @@ export const LeftAlignedDropdown = Template.bind({});
 
 LeftAlignedDropdown.args = {
   ...Default.args,
-  direction: 'LEFT',
+  align: 'LEFT',
   trigger: <button>Click</button>,
 };
 
@@ -86,7 +84,7 @@ export const CenterAlignedDropdown = Template.bind({});
 
 CenterAlignedDropdown.args = {
   ...Default.args,
-  direction: 'CENTER',
+  align: 'CENTER',
   trigger: <button>Click</button>,
 };
 

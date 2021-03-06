@@ -5,10 +5,9 @@ import { UnopDropdownProps, DropDownDirections } from './types';
 const UnopDropdown: React.FC<UnopDropdownProps> = ({
   trigger,
   children,
-  direction = DropDownDirections.RIGHT,
+  align = DropDownDirections.RIGHT,
   onAppear,
   onDisappear,
-  onAppearStart,
   onDisappearStart,
   delay,
   hover,
@@ -30,30 +29,29 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
     element.style.visibility = 'visible';
   }, []);
 
-  const displayMenuItem = () => {
+  const displayMenuItem = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (timer) clearTimeout(timer);
-    if (onAppearStart) onAppearStart();
     setShow(true);
-    if (onAppear) onAppear();
+    if (onAppear) onAppear(e);
   };
 
-  const makeDisappear = () => {
+  const makeDisappear = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const timerFunc = () =>
       setTimeout(() => {
         setShow(false);
-        if (onDisappear) onDisappear();
+        if (onDisappear) onDisappear(e);
       }, delay || 0);
     setTimer(timerFunc());
-    if (onDisappearStart) onDisappearStart();
+    if (onDisappearStart) onDisappearStart(e);
   };
 
   const handleAction = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault();
     e.stopPropagation();
     if (show) {
-      makeDisappear();
+      makeDisappear(e);
     } else {
-      displayMenuItem();
+      displayMenuItem(e);
     }
   };
 
@@ -73,9 +71,9 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
 
   const getStyleObject = (): React.CSSProperties => {
     const style: React.CSSProperties = {};
-    if (direction === DropDownDirections.RIGHT) {
+    if (align === DropDownDirections.RIGHT) {
       style.right = 0;
-    } else if (direction === DropDownDirections.CENTER) {
+    } else if (align === DropDownDirections.CENTER) {
       style.left = `50%`;
       style.marginLeft = `-${dropdownWidth.current / 2}px`;
     } else {
