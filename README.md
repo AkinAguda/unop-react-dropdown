@@ -22,6 +22,8 @@ A visual storybook to demonstrate the various component prop behaviour can be fo
 
 ![](align.gif)
 
+The other component prop options can be found [here](#api)
+
 ### Installation
 Unop-react-drop down is available as an [npm package]
 
