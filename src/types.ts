@@ -11,14 +11,14 @@ export interface DropDownProps extends CommonProps {
   dropdownMenuRef: React.RefObject<HTMLDivElement>;
 }
 
-export enum DropDownDirections {
+export enum DropDowndirections {
   RIGHT = 'RIGHT',
   LEFT = 'LEFT',
   CENTER = 'CENTER',
 }
 
 export interface UnopDropdownProps extends CommonProps {
-  align?: DropDownDirections;
+  align?: DropDowndirections;
   onDisappearStart?: (e?: any) => void;
   onAppear?: (e?: any) => void;
   onDisappear?: (e?: any) => void;

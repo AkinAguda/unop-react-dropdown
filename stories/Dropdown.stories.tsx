@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Meta, Story, ArgTypes } from '@storybook/react';
-import UnopDropdown, { UnopDropdownProps } from '../src';
+import { Meta, Story } from '@storybook/react';
+import UnopDropdown, { UnopDropdownProps, DropDowndirections } from '../src';
 import './styles.css';
 
 const meta: Meta = {
@@ -87,14 +87,14 @@ export const LeftAlignedDropdown = Template.bind({});
 
 LeftAlignedDropdown.args = {
   ...Default.args,
-  align: 'LEFT',
+  align: DropDowndirections.LEFT,
 };
 
 export const CenterAlignedDropdown = Template.bind({});
 
 CenterAlignedDropdown.args = {
   ...Default.args,
-  align: 'CENTER',
+  align: DropDowndirections.CENTER,
 };
 
 export const DelayedDisappear = Template.bind({});

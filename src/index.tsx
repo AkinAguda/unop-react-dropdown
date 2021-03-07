@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import DropDown from './Dropdown';
-import { UnopDropdownProps, DropDownDirections } from './types';
+import { UnopDropdownProps, DropDowndirections } from './types';
 
 const UnopDropdown: React.FC<UnopDropdownProps> = ({
   trigger,
   children,
-  align = DropDownDirections.RIGHT,
+  align = DropDowndirections.RIGHT,
   onAppear,
   onDisappear,
   onDisappearStart,
@@ -71,9 +71,9 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
 
   const getStyleObject = (): React.CSSProperties => {
     const style: React.CSSProperties = {};
-    if (align === DropDownDirections.RIGHT) {
+    if (align === DropDowndirections.RIGHT) {
       style.right = 0;
-    } else if (align === DropDownDirections.CENTER) {
+    } else if (align === DropDowndirections.CENTER) {
       style.left = `50%`;
       style.marginLeft = `-${dropdownWidth.current / 2}px`;
     } else {
@@ -97,6 +97,6 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
   );
 };
 
-export { UnopDropdownProps };
+export { UnopDropdownProps, DropDowndirections };
 
 export default UnopDropdown;
