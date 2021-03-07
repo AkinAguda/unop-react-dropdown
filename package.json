@@ -8,6 +8,12 @@
     "url": "https://github.com/AkinAguda/unop-react-dropdown.git"
   },
   "homepage": "https://github.com/AkinAguda/unop-react-dropdown",
+  "keywords": [
+   "dropdown",
+   "unopinionated dropdown",
+   "react dropdown",
+   "unstyled dropdown"
+  ],
   "files": [
     "dist",
     "src"
