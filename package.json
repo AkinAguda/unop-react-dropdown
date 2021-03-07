@@ -41,6 +41,11 @@
     "trailingComma": "es5",
     "endOfLine": "auto"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.ts"
+    }
+  },
   "name": "unop-react-dropdown",
   "author": "AkinAguda",
   "module": "dist/unop-react-dropdown.esm.js",
