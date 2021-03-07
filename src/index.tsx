@@ -14,7 +14,7 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
 }) => {
   const [show, setShow] = useState(false);
 
-  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const dropdownWidth = useRef(0);
 
@@ -30,7 +30,8 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
   }, []);
 
   const displayMenuItem = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (timer) clearTimeout(timer);
+    if (timer) clearTimeout(timer.current!);
+    timer.current = null;
     setShow(true);
     if (onAppear) onAppear(e);
   };
@@ -41,7 +42,7 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
         setShow(false);
         if (onDisappear) onDisappear(e);
       }, delay || 0);
-    setTimer(timerFunc());
+    timer.current = timerFunc();
     if (onDisappearStart) onDisappearStart(e);
   };
 
