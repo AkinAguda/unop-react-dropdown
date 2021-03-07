@@ -26,6 +26,16 @@ The align prop demo
 
 The other component props, and their options can be found [here](#api)
 
+### Code Sandbox Demo
+
+The component was implemented to create an editable demo dropdown for reference in [code sandbox](https://codesandbox.io/s/modest-cdn-ej284?file=/src/App.js
+)
+
+![](codeplay.gif)
+
+Dropdown in code sandbox
+
+Full list of component props, and their options can be found [here](#api)
 ### Installation
 Unop-react-drop down is available as an [npm package](https://www.npmjs.com/package/unop-react-dropdown)
 
@@ -47,6 +57,27 @@ and use as:
 ```
 
 > **trigger** is the minimum required prop
+To implement the other props, they can be passed as such:
+
+```jsx
+<UnopDropdown
+      onAppear={handler}
+      onDisappearStart={handler}
+      trigger={<button className="AnimatedDropdownButton">Hover</button>}
+      delay={300}
+      align="CENTER"
+      hover
+    >
+        <div>I am random</div>
+        <div>I am random</div>
+        <div>I am random</div>
+    </UnopDropdown>
+```
+
+Check out the [code sandbox](https://codesandbox.io/s/modest-cdn-ej284?file=/src/App.js
+) implementation for any clarification.
+
+Full list of component props, and their options can be found [here](#api)
 
 ### Help and Contributions
 
