@@ -57,7 +57,7 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: https://npm.pkg.github.com/
-          scope: '${${{ github.actor }},,}'
+          scope: 'akinaguda'
 
       - name: Use cached node_modules
         uses: actions/cache@master
@@ -74,12 +74,12 @@ jobs:
 
       - name: Update Package Name
         run: |
-          sed -i 's,"name": "unop-react-dropdown","name": "@${${{ github.actor }},,}/unop-react-dropdown",' package.json
+          sed -i 's,"name": "unop-react-dropdown","name": "@akinaguda/unop-react-dropdown",' package.json
           cat package.json
 
       - name: Update Publish Config
         run: |
-          sed -i 's^registry-url^npm.pkg.github.com/@${${{ github.actor }},,}^' package.json
+          sed -i 's^registry-url^npm.pkg.github.com/@akinaguda^' package.json
           cat package.json
 
       - name: Publish to GitHub Package Registry
