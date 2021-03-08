@@ -1,5 +1,9 @@
 name: CD
-on: [push]
+on:
+  workflow_run:
+    workflows: ['CI']
+    types:
+      - completed
 jobs:
   npm-publish:
     name: npm-publish
