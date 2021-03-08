@@ -74,7 +74,7 @@ jobs:
 
       - name: Update Package Name
         run: |
-          sed 's,"name": "unop-react-dropdown","name": "@{{ github.actor }}"/unop-react-dropdown",' package.json
+          sed -i 's,"name": "unop-react-dropdown","name": "@${{ github.actor }}"/unop-react-dropdown",' package.json
           cat package.json
 
       - name: Update Publish Config
