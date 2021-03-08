@@ -9,10 +9,10 @@
   },
   "homepage": "https://github.com/AkinAguda/unop-react-dropdown",
   "keywords": [
-   "dropdown",
-   "unopinionated dropdown",
-   "react dropdown",
-   "unstyled dropdown"
+    "dropdown",
+    "unopinionated dropdown",
+    "react dropdown",
+    "unstyled dropdown"
   ],
   "publishConfig": {
     "registry": "https://registry-url"
