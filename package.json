@@ -14,6 +14,9 @@
    "react dropdown",
    "unstyled dropdown"
   ],
+  "publishConfig": {
+    "registry": "https://registry-url"
+  },
   "files": [
     "dist",
     "src"
