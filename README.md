@@ -14,6 +14,7 @@ I found myself reusing this dropdown logic between different projects.
 - Includes basic functionality for opening, closing and setting delay before close (for things like a close animation to happen)
 
 ### Live Demo
+
 A visual storybook to demonstrate the various component prop behaviour can be found below.
 
 [Web site, docs and demo](https://unopdropdown.netlify.app/)
@@ -28,15 +29,16 @@ The other component props, and their options can be found [here](#api)
 
 ### Code Sandbox Demo
 
-The component was implemented to create an editable demo dropdown for reference in [code sandbox](https://codesandbox.io/s/modest-cdn-ej284?file=/src/App.js
-)
+The component was implemented to create an editable demo dropdown for reference in [code sandbox](https://codesandbox.io/s/modest-cdn-ej284?file=/src/App.js)
 
 ![](codeplay.gif)
 
 Dropdown in code sandbox
 
 Full list of component props, and their options can be found [here](#api)
+
 ### Installation
+
 Unop-react-drop down is available as an [npm package](https://www.npmjs.com/package/unop-react-dropdown)
 
 > `npm install unop-react-dropdown`
@@ -57,25 +59,24 @@ and use as:
 ```
 
 > **trigger** is the minimum required prop
-To implement the other props, they can be passed as such:
+> To implement the other props, they can be passed as such:
 
 ```jsx
 <UnopDropdown
-      onAppear={handler}
-      onDisappearStart={handler}
-      trigger={<button className="AnimatedDropdownButton">Hover</button>}
-      delay={300}
-      align="CENTER"
-      hover
-    >
-        <div>I am random</div>
-        <div>I am random</div>
-        <div>I am random</div>
-    </UnopDropdown>
+  onAppear={handler}
+  onDisappearStart={handler}
+  trigger={<button className="AnimatedDropdownButton">Hover</button>}
+  delay={300}
+  align="CENTER"
+  hover
+>
+  <div>I am random</div>
+  <div>I am random</div>
+  <div>I am random</div>
+</UnopDropdown>
 ```
 
-Check out the [code sandbox](https://codesandbox.io/s/modest-cdn-ej284?file=/src/App.js
-) implementation for any clarification.
+Check out the [code sandbox](https://codesandbox.io/s/modest-cdn-ej284?file=/src/App.js) implementation for any clarification.
 
 Full list of component props, and their options can be found [here](#api)
 
@@ -92,15 +93,15 @@ Full list of component props, and their options can be found [here](#api)
 
 ### Component props
 
-| Prop             | Type                          | Default | Description                                                                                                                                    |
-| ---------------- | ----------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| trigger          | Jsx.Element                   | []      | This will be passed an onClick to handle the toggling when it is rendered. This should prefarably be a button                                  |
-| align            | 'RIGHT' or 'LEFT' or 'CENTER' | 'LEFT'  | When 'RIGHT', the dropdown will be rendered below the trigger, aligned to the right. When 'CENTER', the dropdown will be aligned to the center |
-| onAppear         | function                      | null    | This will be called when the dropdown is visible                                                                                               |
-| onDisappear      | function                      | null    | This will be called when the dropdown is invisible                                                                                             |
-| onDisappearStart | function                      | null    | This will be called when the timeout to diappear(become invisible) starts                                                                      |
-| delay            | number                        | 0       | This is the delay in milliseconds before the dropdown goes invisible                                                                           |
-| hover            | boolean                       | false   | When true, the dropdown will become visible on hover                                                                                           |
+| Prop             | Type                          | Default | Description                                                                                                                                     |
+| ---------------- | ----------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| trigger          | Jsx.Element                   | none    | This is the only compulsory prop. This will be passed an onClick to handle the toggling when it is rendered. This should prefarably be a button |
+| align            | 'RIGHT' or 'LEFT' or 'CENTER' | 'LEFT'  | When 'RIGHT', the dropdown will be rendered below the trigger, aligned to the right. When 'CENTER', the dropdown will be aligned to the center  |
+| onAppear         | function                      | null    | This will be called when the dropdown is visible                                                                                                |
+| onDisappear      | function                      | null    | This will be called when the dropdown is invisible                                                                                              |
+| onDisappearStart | function                      | null    | This will be called when the timeout to diappear(become invisible) starts                                                                       |
+| delay            | number                        | 0       | This is the delay in milliseconds before the dropdown goes invisible                                                                            |
+| hover            | boolean                       | false   | When true, the dropdown will become visible on hover                                                                                            |
 
 ### License
 
