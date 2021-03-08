@@ -2,7 +2,7 @@
 
 Unopinionated dropdown component for react.
 
-![build](https://github.com/AkinAguda/unop-react-dropdown/blob/development/.github/workflows/main.yml/badge.svg)
+![build](https://github.com/AkinAguda/unop-react-dropdown/workflows/main.yml/badge.svg)
 
 ### Motivation
 
