@@ -72,6 +72,11 @@ jobs:
         env:
           CI: true
 
+      - name: Update Package Name
+        run: |
+          sed 's,"name": "unop-react-dropdown","name": "@{{ github.actor }}"/unop-react-dropdown",' package.json
+          cat package.json
+
       - name: Update Publish Config
         run: |
           sed -i 's^registry-url^npm.pkg.github.com/@${{ github.actor }}^' package.json
