@@ -13,7 +13,9 @@ const DropDown: React.FC<DropDownProps> = ({
   style,
 }) => (
   <div
-    className={`UnopdropDown_EMFQP${show ? ' reveal-drop-down-menu_EMFQP' : ''}`}
+    className={`UnopdropDown_EMFQP${
+      show ? ' reveal-drop-down-menu_EMFQP' : ''
+    }`}
     onMouseLeave={handleMouseLeave}
     onMouseOver={handleMouseOver}
     onFocus={() => {}}
