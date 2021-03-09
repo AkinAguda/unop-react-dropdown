@@ -1,17 +1,17 @@
-.DropDown_EMFQP {
+.UnopdropDown_EMFQP {
   display: inline-block;
   position: relative;
 }
 
-.DropDown_EMFQP:hover {
+.UnopdropDown_EMFQP:hover {
   cursor: pointer;
 }
 
-.DropDown_EMFQP.reveal-drop-down-menu_EMFQP .drop-down-menu_EMFQP {
+.UnopdropDown_EMFQP.reveal-drop-down-menu_EMFQP .drop-down-menu_EMFQP {
   display: block !important;
 }
 
-.DropDown_EMFQP .drop-down-menu_EMFQP {
+.UnopdropDown_EMFQP .drop-down-menu_EMFQP {
   margin: 0;
   position: absolute;
   top: 100%;
@@ -21,4 +21,3 @@
   width: -moz-fit-content;
   width: fit-content;
 }
-/*# sourceMappingURL=Dropdown_EMFQP.module.css.map */

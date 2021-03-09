@@ -1,5 +1,4 @@
 import React from 'react';
-import { mergeClasses } from './helpers';
 import { DropDownProps } from './types';
 import './Dropdown.css';
 
@@ -14,10 +13,7 @@ const DropDown: React.FC<DropDownProps> = ({
   style,
 }) => (
   <div
-    className={mergeClasses(
-      'DropDown_EMFQP',
-      show && 'reveal-drop-down-menu_EMFQP'
-    )}
+    className={`UnopdropDown_EMFQP${show ? ' reveal-drop-down-menu_EMFQP' : ''}`}
     onMouseLeave={handleMouseLeave}
     onMouseOver={handleMouseOver}
     onFocus={() => {}}
