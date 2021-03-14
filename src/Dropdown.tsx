@@ -1,5 +1,4 @@
 import React from 'react';
-import { mergeClasses } from './helpers';
 import { DropDownProps } from './types';
 import './Dropdown.css';
 
@@ -14,10 +13,7 @@ const DropDown: React.FC<DropDownProps> = ({
   style,
 }) => (
   <div
-    className={mergeClasses(
-      'DropDown_EMFQP',
-      show && 'reveal-drop-down-menu_EMFQP'
-    )}
+    className="UnopdropDown_EMFQP"
     onMouseLeave={handleMouseLeave}
     onMouseOver={handleMouseOver}
     onFocus={() => {}}
@@ -26,7 +22,13 @@ const DropDown: React.FC<DropDownProps> = ({
   >
     {React.cloneElement(trigger, { onClick: handleClick })}
 
-    <div className="drop-down-menu_EMFQP" style={style} ref={dropdownMenuRef}>
+    <div
+      className={`drop-down-menu_EMFQP${
+        show ? ' reveal-drop-down-menu_EMFQP' : ''
+      }`}
+      style={style}
+      ref={dropdownMenuRef}
+    >
       {children}
     </div>
   </div>
