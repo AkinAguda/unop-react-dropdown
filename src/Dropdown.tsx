@@ -13,9 +13,7 @@ const DropDown: React.FC<DropDownProps> = ({
   style,
 }) => (
   <div
-    className={`UnopdropDown_EMFQP${
-      show ? ' reveal-drop-down-menu_EMFQP' : ''
-    }`}
+    className="UnopdropDown_EMFQP"
     onMouseLeave={handleMouseLeave}
     onMouseOver={handleMouseOver}
     onFocus={() => {}}
@@ -24,7 +22,13 @@ const DropDown: React.FC<DropDownProps> = ({
   >
     {React.cloneElement(trigger, { onClick: handleClick })}
 
-    <div className="drop-down-menu_EMFQP" style={style} ref={dropdownMenuRef}>
+    <div
+      className={`drop-down-menu_EMFQP${
+        show ? ' reveal-drop-down-menu_EMFQP' : ''
+      }`}
+      style={style}
+      ref={dropdownMenuRef}
+    >
       {children}
     </div>
   </div>
