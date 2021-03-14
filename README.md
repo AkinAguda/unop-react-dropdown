@@ -2,6 +2,8 @@
 
 Unopinionated dropdown component for react.
 
+![build](https://github.com/AkinAguda/unop-react-dropdown/actions/workflows/main.yml/badge.svg)
+
 ### Motivation
 
 I found myself reusing this dropdown logic between different projects.

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import DropDown from './Dropdown';
 import { UnopDropdownProps, DropDowndirections } from './types';
+import { Utility } from './functions.module';
 
 const UnopDropdown: React.FC<UnopDropdownProps> = ({
   trigger,
@@ -70,19 +71,6 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
     }
   };
 
-  const getStyleObject = (): React.CSSProperties => {
-    const style: React.CSSProperties = {};
-    if (align === DropDowndirections.RIGHT) {
-      style.right = 0;
-    } else if (align === DropDowndirections.CENTER) {
-      style.left = `50%`;
-      style.marginLeft = `-${dropdownWidth.current / 2}px`;
-    } else {
-      style.left = 0;
-    }
-    return style;
-  };
-
   return (
     <DropDown
       handleMouseOver={handleMouseOver}
@@ -90,7 +78,7 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
       handleClick={handleAction}
       show={show}
       trigger={trigger}
-      style={getStyleObject()}
+      style={Utility.getStyleObject(align, dropdownWidth.current)}
       dropdownMenuRef={dropdownMenuRef}
     >
       {children}
