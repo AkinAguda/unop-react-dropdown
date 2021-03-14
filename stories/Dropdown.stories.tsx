@@ -20,7 +20,7 @@ const meta: Meta = {
 
 export default meta;
 
-// These styles are not required. They are just for better visualization
+// These styles are not required. They are just for better visualization.
 const dropdownStyles: React.CSSProperties = {
   padding: '30px',
   boxSizing: 'border-box',
