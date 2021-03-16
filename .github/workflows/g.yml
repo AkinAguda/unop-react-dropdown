@@ -52,7 +52,7 @@ jobs:
 
       - name: Set lowercase actor name
         run: |
-          echo 'actor_name=${{ github.actor }} | tr "A-Z" "a-z"' >> $GITHUB_ENV
+          echo 'actor_name=echo ${{ github.actor }} | tr "A-Z" "a-z"' >> $GITHUB_ENV
     
       - name: get package name and store
         run: |
