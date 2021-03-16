@@ -55,10 +55,10 @@ jobs:
           echo 'actor_name=${{ github.actor }} | tr "A-Z" "a-z"' >> $GITHUB_ENV
     
       - name: get package name and store
-          run: |
-            echo 'package_name<<EOF' >> $GITHUB_ENV
-            grep -Po '"name": *\K"[^"]*"' package.json | grep -oP '"\K[^"\047]+(?=["\047])' >> $GITHUB_ENV
-            echo 'EOF' >> $GITHUB_ENV
+        run: |
+          echo 'package_name<<EOF' >> $GITHUB_ENV
+          grep -Po '"name": *\K"[^"]*"' package.json | grep -oP '"\K[^"\047]+(?=["\047])' >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
 
       - name: Setup Node.js (GPR)
         uses: actions/setup-node@master
