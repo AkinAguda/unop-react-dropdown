@@ -2,9 +2,9 @@ name: npm-publish
 on:
   push:
     branches:
-      - testBranch # Change this to your default branch
+      - master # Change this to your default branch
 jobs:
-  fake-npm-publish:
+  npm-publish:
     name: npm-publish
     runs-on: ubuntu-latest
 
@@ -35,13 +35,13 @@ jobs:
       - name: Update Publish Config
         run: sed -i 's^registry-url^registry.npmjs.org^' package.json
 
-      # - name: Publish to NPM
-      #   run: npm publish --access public
-      #   env:
-      #     CI: true
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - name: Publish to NPM
+        run: npm publish --access public
+        env:
+          CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-  fake-gpr-publish:
+  gpr-publish:
     name: gpr-publish
     runs-on: ubuntu-latest
 
@@ -50,13 +50,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@main
 
-      - name: Set lowercase actor name
+      - name: Store lowercase actor name
         run: |
           echo 'actor_name<<EOF' >> $GITHUB_ENV
           echo ${{ github.actor }} | tr "A-Z" "a-z" >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
     
-      - name: get package name and store
+      - name: Store package name
         run: |
           echo 'package_name<<EOF' >> $GITHUB_ENV
           grep -Po '"name": *\K"[^"]*"' package.json | grep -oP '"\K[^"\047]+(?=["\047])' >> $GITHUB_ENV
@@ -92,8 +92,8 @@ jobs:
           sed -i 's^registry-url^npm.pkg.github.com/@${{ env.actor_name }}^' package.json
           cat package.json
 
-      # - name: Publish to GitHub Package Registry
-      #   run: npm publish --access public
-      #   env:
-      #     CI: true
-      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish to GitHub Package Registry
+        run: npm publish --access public
+        env:
+          CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
