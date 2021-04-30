@@ -3,12 +3,13 @@ export interface CommonProps {
 }
 
 export interface DropDownProps extends CommonProps {
-  handleClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  handleMouseOver: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  handleMouseLeave: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  handleClick: (e: MouseEvent) => void;
+  handleMouseOver: (e: MouseEvent) => void;
+  handleMouseLeave: (e: MouseEvent) => void;
   show: boolean;
   style: React.CSSProperties;
   dropdownMenuRef: React.RefObject<HTMLDivElement>;
+  dropdownRef: React.RefObject<HTMLDivElement>;
 }
 
 export enum DropDowndirections {
@@ -24,4 +25,6 @@ export interface UnopDropdownProps extends CommonProps {
   onDisappear?: (e?: any) => void;
   delay?: number;
   hover?: boolean;
+  closeOnClickOut?: boolean;
+  closeOnDropdownClicked?: boolean;
 }

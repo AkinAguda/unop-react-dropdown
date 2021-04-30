@@ -12,6 +12,8 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
   onDisappearStart,
   delay,
   hover,
+  closeOnClickOut,
+  closeOnDropdownClicked,
 }) => {
   const [show, setShow] = useState(false);
 
@@ -20,6 +22,8 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
   const dropdownWidth = useRef(0);
 
   const dropdownMenuRef = useRef<HTMLDivElement>(null);
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = dropdownMenuRef.current!;
@@ -30,14 +34,28 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
     element.style.visibility = 'visible';
   }, []);
 
-  const displayMenuItem = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  useEffect(() => {
+    if (closeOnClickOut) {
+      window.addEventListener('click', (e) => {
+        if (!e.composedPath().includes(dropdownMenuRef.current!)) {
+          handleAction(e);
+        } else {
+          if (closeOnDropdownClicked) {
+            handleAction(e);
+          }
+        }
+      });
+    }
+  }, [show]);
+
+  const displayMenuItem = (e: MouseEvent) => {
     if (timer) clearTimeout(timer.current!);
     timer.current = null;
     setShow(true);
     if (onAppear) onAppear(e);
   };
 
-  const makeDisappear = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const makeDisappear = (e: MouseEvent) => {
     const timerFunc = () =>
       setTimeout(() => {
         setShow(false);
@@ -47,7 +65,7 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
     if (onDisappearStart) onDisappearStart(e);
   };
 
-  const handleAction = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleAction = (e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     if (show) {
@@ -57,15 +75,13 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
     }
   };
 
-  const handleMouseOver = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleMouseOver = (e: MouseEvent) => {
     if (hover && !show) {
       handleAction(e);
     }
   };
 
-  const handleMouseLeave = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const handleMouseLeave = (e: MouseEvent) => {
     if (hover && show) {
       handleAction(e);
     }
@@ -80,6 +96,7 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
       trigger={trigger}
       style={Utility.getStyleObject(align, dropdownWidth.current)}
       dropdownMenuRef={dropdownMenuRef}
+      dropdownRef={dropdownRef}
     >
       {children}
     </DropDown>
