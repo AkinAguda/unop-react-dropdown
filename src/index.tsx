@@ -1,6 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import DropDown from './Dropdown';
-import { UnopDropdownProps, DropDowndirections } from './types';
+import {
+  UnopDropdownProps,
+  DropDowndirections,
+  CustomMouseEvent,
+} from './types';
 import { Utility } from './functions.module';
 
 const UnopDropdown: React.FC<UnopDropdownProps> = ({
@@ -48,14 +52,14 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
     }
   }, [show]);
 
-  const displayMenuItem = (e: MouseEvent) => {
+  const displayMenuItem = (e: CustomMouseEvent) => {
     if (timer) clearTimeout(timer.current!);
     timer.current = null;
     setShow(true);
     if (onAppear) onAppear(e);
   };
 
-  const makeDisappear = (e: MouseEvent) => {
+  const makeDisappear = (e: CustomMouseEvent) => {
     const timerFunc = () =>
       setTimeout(() => {
         setShow(false);
@@ -65,7 +69,7 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
     if (onDisappearStart) onDisappearStart(e);
   };
 
-  const handleAction = (e: MouseEvent) => {
+  const handleAction = (e: CustomMouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     if (show) {
@@ -75,13 +79,13 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
     }
   };
 
-  const handleMouseOver = (e: MouseEvent) => {
+  const handleMouseOver = (e: CustomMouseEvent) => {
     if (hover && !show) {
       handleAction(e);
     }
   };
 
-  const handleMouseLeave = (e: MouseEvent) => {
+  const handleMouseLeave = (e: CustomMouseEvent) => {
     if (hover && show) {
       handleAction(e);
     }

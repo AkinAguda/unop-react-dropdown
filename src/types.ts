@@ -2,10 +2,14 @@ export interface CommonProps {
   trigger: JSX.Element;
 }
 
+export type CustomMouseEvent =
+  | MouseEvent
+  | React.MouseEvent<HTMLDivElement, MouseEvent>;
+
 export interface DropDownProps extends CommonProps {
-  handleClick: (e: MouseEvent) => void;
-  handleMouseOver: (e: MouseEvent) => void;
-  handleMouseLeave: (e: MouseEvent) => void;
+  handleClick: (e: CustomMouseEvent) => void;
+  handleMouseOver: (e: CustomMouseEvent) => void;
+  handleMouseLeave: (e: CustomMouseEvent) => void;
   show: boolean;
   style: React.CSSProperties;
   dropdownMenuRef: React.RefObject<HTMLDivElement>;
