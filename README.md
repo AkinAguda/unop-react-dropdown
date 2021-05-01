@@ -3,7 +3,8 @@
 Unopinionated dropdown component for react.
 
 ![build](https://github.com/AkinAguda/unop-react-dropdown/actions/workflows/main.yml/badge.svg)
-![](https://img.shields.io/badge/coverage-94.19%25-green)
+
+<!-- ![](https://img.shields.io/badge/coverage-94.19%25-green) -->
 
 ### Motivation
 
