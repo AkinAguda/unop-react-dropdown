@@ -16,8 +16,8 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
   onDisappearStart,
   delay,
   hover,
-  closeOnClickOut,
-  closeOnDropdownClicked,
+  closeOnClickOut = false,
+  closeOnDropdownClicked = false,
 }) => {
   const [show, setShow] = useState(false);
 
@@ -39,12 +39,21 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
   }, []);
 
   useEffect(() => {
-    if (closeOnClickOut) {
+    if (closeOnClickOut || closeOnDropdownClicked) {
       window.addEventListener('click', (e) => {
-        if (!e.composedPath().includes(dropdownMenuRef.current!)) {
+        const path = e.composedPath();
+        if (
+          show &&
+          closeOnClickOut &&
+          !path.includes(dropdownMenuRef.current!)
+        ) {
           handleAction(e);
         } else {
-          if (closeOnDropdownClicked) {
+          if (
+            show &&
+            closeOnDropdownClicked &&
+            path.includes(dropdownMenuRef.current!)
+          ) {
             handleAction(e);
           }
         }
