@@ -83,6 +83,20 @@ HoverTrigger.args = {
   trigger: <button>hover</button>,
 };
 
+export const CloseOnClickOut = Template.bind({});
+
+CloseOnClickOut.args = {
+  ...Default.args,
+  closeOnClickOut: true,
+};
+
+export const CloseOnDropdownClicked = Template.bind({});
+
+CloseOnDropdownClicked.args = {
+  ...Default.args,
+  closeOnDropdownClicked: true,
+};
+
 export const LeftAlignedDropdown = Template.bind({});
 
 LeftAlignedDropdown.args = {

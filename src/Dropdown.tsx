@@ -11,6 +11,7 @@ const DropDown: React.FC<DropDownProps> = ({
   dropdownMenuRef,
   show,
   style,
+  dropdownRef,
 }) => (
   <div
     className="UnopdropDown_EMFQP"
@@ -19,6 +20,7 @@ const DropDown: React.FC<DropDownProps> = ({
     onFocus={() => {}}
     role="button"
     tabIndex={0}
+    ref={dropdownRef}
   >
     {React.cloneElement(trigger, { onClick: handleClick })}
 

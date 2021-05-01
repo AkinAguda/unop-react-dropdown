@@ -140,6 +140,83 @@ describe('UnopDropdown', () => {
     });
   });
 
+  describe('Click out an close on click work fine', () => {
+    it('closes properly when cliked out', () => {
+      const dropdown = mount(
+        <div>
+          <UnopDropdown
+            closeOnClickOut
+            trigger={<button id="trigger">Hover</button>}
+          >
+            <ul>
+              <li>Hello</li>
+            </ul>
+          </UnopDropdown>
+          <div id="randomElement"></div>
+        </div>
+      );
+      const dropdownMenu = dropdown.find('.drop-down-menu_EMFQP');
+      const trigger = dropdown.find('#trigger');
+      const outsideElement = dropdown.find('#randomElement');
+      trigger.simulate('click');
+      expect(dropdownMenu.getDOMNode().classList).toContain(
+        'reveal-drop-down-menu_EMFQP'
+      );
+      trigger.simulate('click');
+      setTimeout(() => {
+        expect(dropdownMenu.getDOMNode().classList).toContain(
+          'reveal-drop-down-menu_EMFQP'
+        );
+      }, 0);
+      outsideElement.simulate('click');
+      setTimeout(() => {
+        expect(dropdownMenu.getDOMNode().classList).not.toContain(
+          'reveal-drop-down-menu_EMFQP'
+        );
+      }, 0);
+    });
+    it('closes properly when item inside is clicked', () => {
+      const dropdown = mount(
+        <div>
+          <UnopDropdown
+            closeOnDropdownClicked
+            trigger={<button id="trigger">Hover</button>}
+          >
+            <ul>
+              <li id="item">Hello</li>
+            </ul>
+          </UnopDropdown>
+          <div id="randomElement"></div>
+        </div>
+      );
+      const dropdownMenu = dropdown.find('.drop-down-menu_EMFQP');
+      const trigger = dropdown.find('#trigger');
+      const item = dropdown.find('#item');
+      const outsideElement = dropdown.find('#randomElement');
+
+      trigger.simulate('click');
+      setTimeout(() => {
+        expect(dropdownMenu.getDOMNode().classList).toContain(
+          'reveal-drop-down-menu_EMFQP'
+        );
+      }, 0);
+
+      outsideElement.simulate('click');
+      setTimeout(() => {
+        expect(dropdownMenu.getDOMNode().classList).toContain(
+          'reveal-drop-down-menu_EMFQP'
+        );
+      }, 0);
+
+      item.simulate('click');
+      setTimeout(() => {
+        expect(dropdownMenu.getDOMNode().classList).not.toContain(
+          'reveal-drop-down-menu_EMFQP'
+        );
+      }, 0);
+    });
+  });
+
   describe('Unopdropdown delays properly', () => {
     const timeout = 300;
 
