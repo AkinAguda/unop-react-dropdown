@@ -4,6 +4,8 @@ Unopinionated dropdown component for react.
 
 ![build](https://github.com/AkinAguda/unop-react-dropdown/actions/workflows/main.yml/badge.svg)
 
+<!-- ![](https://img.shields.io/badge/coverage-94.19%25-green) -->
+
 ### Motivation
 
 I found myself reusing this dropdown logic between different projects.
@@ -95,15 +97,17 @@ Full list of component props, and their options can be found [here](#api)
 
 ### Component props
 
-| Prop             | Type                          | Default | Description                                                                                                                                     |
-| ---------------- | ----------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| trigger          | Jsx.Element                   | none    | This is the only compulsory prop. This will be passed an onClick to handle the toggling when it is rendered. This should prefarably be a button |
-| align            | 'RIGHT' or 'LEFT' or 'CENTER' | 'LEFT'  | When 'RIGHT', the dropdown will be rendered below the trigger, aligned to the right. When 'CENTER', the dropdown will be aligned to the center  |
-| onAppear         | function                      | null    | This will be called when the dropdown is visible                                                                                                |
-| onDisappear      | function                      | null    | This will be called when the dropdown is invisible                                                                                              |
-| onDisappearStart | function                      | null    | This will be called when the timeout to diappear(become invisible) starts                                                                       |
-| delay            | number                        | 0       | This is the delay in milliseconds before the dropdown goes invisible                                                                            |
-| hover            | boolean                       | false   | When true, the dropdown will become visible on hover                                                                                            |
+| Prop                   | Type                          | Default | Description                                                                                                                                     |
+| ---------------------- | ----------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| trigger                | Jsx.Element                   | none    | This is the only compulsory prop. This will be passed an onClick to handle the toggling when it is rendered. This should prefarably be a button |
+| align                  | 'RIGHT' or 'LEFT' or 'CENTER' | 'LEFT'  | When 'RIGHT', the dropdown will be rendered below the trigger, aligned to the right. When 'CENTER', the dropdown will be aligned to the center  |
+| onAppear               | function                      | null    | This will be called when the dropdown is visible                                                                                                |
+| onDisappear            | function                      | null    | This will be called when the dropdown is invisible                                                                                              |
+| onDisappearStart       | function                      | null    | This will be called when the timeout to diappear(become invisible) starts                                                                       |
+| delay                  | number                        | 0       | This is the delay in milliseconds before the dropdown goes invisible                                                                            |
+| hover                  | boolean                       | false   | When true, the dropdown will become visible on hover                                                                                            |
+| closeOnClickOut        | boolean                       | false   | When true, this closes the dropdown when the user clicks on any element that is outside the dropdown                                            |
+| closeOnDropdownClicked | boolean                       | false   | When true, this closes the dropdown when any area in the dropdown is clicked                                                                    |
 
 ### License
 

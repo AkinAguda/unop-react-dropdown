@@ -2,13 +2,18 @@ export interface CommonProps {
   trigger: JSX.Element;
 }
 
+export type CustomMouseEvent =
+  | MouseEvent
+  | React.MouseEvent<HTMLDivElement, MouseEvent>;
+
 export interface DropDownProps extends CommonProps {
-  handleClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  handleMouseOver: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  handleMouseLeave: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  handleClick: (e: CustomMouseEvent) => void;
+  handleMouseOver: (e: CustomMouseEvent) => void;
+  handleMouseLeave: (e: CustomMouseEvent) => void;
   show: boolean;
   style: React.CSSProperties;
   dropdownMenuRef: React.RefObject<HTMLDivElement>;
+  dropdownRef: React.RefObject<HTMLDivElement>;
 }
 
 export enum DropDowndirections {
@@ -24,4 +29,6 @@ export interface UnopDropdownProps extends CommonProps {
   onDisappear?: (e?: any) => void;
   delay?: number;
   hover?: boolean;
+  closeOnClickOut?: boolean;
+  closeOnDropdownClicked?: boolean;
 }

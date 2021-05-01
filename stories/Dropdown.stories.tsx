@@ -20,7 +20,7 @@ const meta: Meta = {
 
 export default meta;
 
-// These styles are not required. They are just for better visualization
+// These styles are not required. They are just for better visualization.
 const dropdownStyles: React.CSSProperties = {
   padding: '30px',
   boxSizing: 'border-box',
@@ -81,6 +81,20 @@ HoverTrigger.args = {
   ...Default.args,
   hover: true,
   trigger: <button>hover</button>,
+};
+
+export const CloseOnClickOut = Template.bind({});
+
+CloseOnClickOut.args = {
+  ...Default.args,
+  closeOnClickOut: true,
+};
+
+export const CloseOnDropdownClicked = Template.bind({});
+
+CloseOnDropdownClicked.args = {
+  ...Default.args,
+  closeOnDropdownClicked: true,
 };
 
 export const LeftAlignedDropdown = Template.bind({});
