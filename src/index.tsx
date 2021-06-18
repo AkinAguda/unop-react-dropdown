@@ -38,27 +38,28 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
     element.style.visibility = 'visible';
   }, []);
 
+  const handler = (e: MouseEvent) => {
+    const path = e.composedPath();
+    if (show && closeOnClickOut && !path.includes(dropdownMenuRef.current!)) {
+      handleAction(e);
+    } else {
+      if (
+        show &&
+        closeOnDropdownClicked &&
+        path.includes(dropdownMenuRef.current!)
+      ) {
+        handleAction(e);
+      }
+    }
+  };
+
   useEffect(() => {
     if (closeOnClickOut || closeOnDropdownClicked) {
-      window.addEventListener('click', (e) => {
-        const path = e.composedPath();
-        if (
-          show &&
-          closeOnClickOut &&
-          !path.includes(dropdownMenuRef.current!)
-        ) {
-          handleAction(e);
-        } else {
-          if (
-            show &&
-            closeOnDropdownClicked &&
-            path.includes(dropdownMenuRef.current!)
-          ) {
-            handleAction(e);
-          }
-        }
-      });
+      window.addEventListener('click', handler);
     }
+    return () => {
+      window.removeEventListener('click', handler);
+    };
   }, [show]);
 
   const displayMenuItem = (e: CustomMouseEvent) => {
