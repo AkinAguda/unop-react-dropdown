@@ -12,9 +12,15 @@ const DropDown: React.FC<DropDownProps> = ({
   show,
   style,
   dropdownRef,
+  makeDisappear,
+  displayMenuItem,
+  dropdownWrapperClassName,
+  dropdownMenuClassName,
 }) => (
   <div
-    className="UnopdropDown_EMFQP"
+    className={`UnopdropDown_EMFQP${
+      dropdownWrapperClassName ? ` ${dropdownWrapperClassName}` : ''
+    }`}
     onMouseLeave={handleMouseLeave}
     onMouseOver={handleMouseOver}
     onFocus={() => {}}
@@ -27,11 +33,17 @@ const DropDown: React.FC<DropDownProps> = ({
     <div
       className={`drop-down-menu_EMFQP${
         show ? ' reveal-drop-down-menu_EMFQP' : ''
-      }`}
+      }${dropdownMenuClassName ? ` ${dropdownMenuClassName}` : ''}`}
       style={style}
       ref={dropdownMenuRef}
     >
-      {children}
+      {typeof children === 'function'
+        ? (children as Function)({
+            show: displayMenuItem,
+            hide: makeDisappear,
+            open: show,
+          })
+        : children}
     </div>
   </div>
 );

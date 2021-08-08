@@ -18,6 +18,8 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
   hover,
   closeOnClickOut = false,
   closeOnDropdownClicked = false,
+  dropdownWrapperClassName,
+  dropdownMenuClassName,
 }) => {
   const [show, setShow] = useState(false);
 
@@ -38,37 +40,38 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
     element.style.visibility = 'visible';
   }, []);
 
+  const handler = (e: MouseEvent) => {
+    const path = e.composedPath();
+    if (show && closeOnClickOut && !path.includes(dropdownMenuRef.current!)) {
+      handleAction(e);
+    } else {
+      if (
+        show &&
+        closeOnDropdownClicked &&
+        path.includes(dropdownMenuRef.current!)
+      ) {
+        handleAction(e);
+      }
+    }
+  };
+
   useEffect(() => {
     if (closeOnClickOut || closeOnDropdownClicked) {
-      window.addEventListener('click', (e) => {
-        const path = e.composedPath();
-        if (
-          show &&
-          closeOnClickOut &&
-          !path.includes(dropdownMenuRef.current!)
-        ) {
-          handleAction(e);
-        } else {
-          if (
-            show &&
-            closeOnDropdownClicked &&
-            path.includes(dropdownMenuRef.current!)
-          ) {
-            handleAction(e);
-          }
-        }
-      });
+      window.addEventListener('click', handler);
     }
+    return () => {
+      window.removeEventListener('click', handler);
+    };
   }, [show]);
 
-  const displayMenuItem = (e: CustomMouseEvent) => {
+  const displayMenuItem = (e?: CustomMouseEvent) => {
     if (timer) clearTimeout(timer.current!);
     timer.current = null;
     setShow(true);
     if (onAppear) onAppear(e);
   };
 
-  const makeDisappear = (e: CustomMouseEvent) => {
+  const makeDisappear = (e?: CustomMouseEvent) => {
     const timerFunc = () =>
       setTimeout(() => {
         setShow(false);
@@ -110,6 +113,10 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
       style={Utility.getStyleObject(align, dropdownWidth.current)}
       dropdownMenuRef={dropdownMenuRef}
       dropdownRef={dropdownRef}
+      makeDisappear={makeDisappear}
+      displayMenuItem={displayMenuItem}
+      dropdownWrapperClassName={dropdownWrapperClassName}
+      dropdownMenuClassName={dropdownMenuClassName}
     >
       {children}
     </DropDown>
