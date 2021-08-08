@@ -38,7 +38,7 @@ const DropDown: React.FC<DropDownProps> = ({
       ref={dropdownMenuRef}
     >
       {typeof children === 'function'
-        ? children({
+        ? (children as Function)({
             show: displayMenuItem,
             hide: makeDisappear,
             open: show,
