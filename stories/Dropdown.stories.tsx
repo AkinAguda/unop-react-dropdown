@@ -69,6 +69,22 @@ const AdditionalLogicTemplate: Story<UnopDropdownProps> = (args) => {
   );
 };
 
+const FunctionChildTemplate: Story<UnopDropdownProps> = (args) => {
+  return (
+    <div style={dropdownWrapperStyles}>
+      <UnopDropdown {...args}>
+        {({ hide }) => (
+          <ul style={dropdownStyles}>
+            <li>
+              <button onClick={hide}>Click me to close dropdown</button>
+            </li>
+          </ul>
+        )}
+      </UnopDropdown>
+    </div>
+  );
+};
+
 export const Default = Template.bind({});
 
 Default.args = {
@@ -125,4 +141,10 @@ UsingAppearanceEvents.args = {
   delay: 300,
   onDisappearStart: () => {},
   onAppear: () => {},
+};
+
+export const PassingDownHelpersToChild = FunctionChildTemplate.bind({});
+
+PassingDownHelpersToChild.args = {
+  ...Default.args,
 };

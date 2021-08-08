@@ -1,5 +1,16 @@
+import React from 'react';
+
 export interface CommonProps {
   trigger: JSX.Element;
+  dropdownWrapperClassName?: string;
+  dropdownMenuClassName?: string;
+  children:
+    | React.ReactNode
+    | ((value: {
+        show: (e?: any) => void;
+        hide: (e?: any) => void;
+        open: boolean;
+      }) => React.ReactNode);
 }
 
 export type CustomMouseEvent =
@@ -14,6 +25,8 @@ export interface DropDownProps extends CommonProps {
   style: React.CSSProperties;
   dropdownMenuRef: React.RefObject<HTMLDivElement>;
   dropdownRef: React.RefObject<HTMLDivElement>;
+  makeDisappear: (e?: CustomMouseEvent) => void;
+  displayMenuItem: (e?: CustomMouseEvent) => void;
 }
 
 export enum DropDowndirections {
