@@ -18,6 +18,8 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
   hover,
   closeOnClickOut = false,
   closeOnDropdownClicked = false,
+  dropdownWrapperClassName,
+  dropdownMenuClassName,
 }) => {
   const [show, setShow] = useState(false);
 
@@ -62,14 +64,14 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
     };
   }, [show]);
 
-  const displayMenuItem = (e: CustomMouseEvent) => {
+  const displayMenuItem = (e?: CustomMouseEvent) => {
     if (timer) clearTimeout(timer.current!);
     timer.current = null;
     setShow(true);
     if (onAppear) onAppear(e);
   };
 
-  const makeDisappear = (e: CustomMouseEvent) => {
+  const makeDisappear = (e?: CustomMouseEvent) => {
     const timerFunc = () =>
       setTimeout(() => {
         setShow(false);
@@ -111,6 +113,10 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
       style={Utility.getStyleObject(align, dropdownWidth.current)}
       dropdownMenuRef={dropdownMenuRef}
       dropdownRef={dropdownRef}
+      makeDisappear={makeDisappear}
+      displayMenuItem={displayMenuItem}
+      dropdownWrapperClassName={dropdownWrapperClassName}
+      dropdownMenuClassName={dropdownMenuClassName}
     >
       {children}
     </DropDown>
