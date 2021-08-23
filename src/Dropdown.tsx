@@ -28,7 +28,12 @@ const DropDown: React.FC<DropDownProps> = ({
     tabIndex={0}
     ref={dropdownRef}
   >
-    {React.cloneElement(trigger, { onClick: handleClick })}
+    {React.cloneElement(trigger, {
+      onClick: handleClick,
+      show: displayMenuItem,
+      hide: makeDisappear,
+      open: show,
+    })}
 
     <div
       className={`drop-down-menu_EMFQP${
