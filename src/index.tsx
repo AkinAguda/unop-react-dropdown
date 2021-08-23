@@ -4,6 +4,7 @@ import {
   UnopDropdownProps,
   DropDowndirections,
   CustomMouseEvent,
+  TriggerProps,
 } from './types';
 import { Utility } from './functions.module';
 
@@ -123,6 +124,6 @@ const UnopDropdown: React.FC<UnopDropdownProps> = ({
   );
 };
 
-export { UnopDropdownProps, DropDowndirections };
+export { UnopDropdownProps, DropDowndirections, TriggerProps };
 
 export default UnopDropdown;

@@ -45,3 +45,10 @@ export interface UnopDropdownProps extends CommonProps {
   closeOnClickOut?: boolean;
   closeOnDropdownClicked?: boolean;
 }
+
+export interface TriggerProps {
+  onClick: (e: CustomMouseEvent) => void;
+  show: (e?: CustomMouseEvent | undefined) => void;
+  hide: (e?: CustomMouseEvent | undefined) => void;
+  open: boolean;
+}
